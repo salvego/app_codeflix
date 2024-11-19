@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className='bg-[#141414] text-white scrollbar-hide'>{children}</body>
+      <body className='bg-[#141414] text-white scrollbar-hide'>
+        <Suspense fallback={<div>Carregando...</div>}>{children}</Suspense>
+      </body>
     </html>
   );
 }

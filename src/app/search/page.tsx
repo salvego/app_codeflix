@@ -9,11 +9,11 @@ interface ISearchParams {
 }
 
 interface ISearchProps {
-  searchParams: ISearchParams;
+  searchParams: Promise<ISearchParams>;
 }
 
 export default async function SearchResults({ searchParams }: ISearchProps) {
-  const { title, genre } = searchParams;
+  const { title, genre } = await searchParams;
 
   const movies = await searchMovies(title, genre);
 
@@ -22,7 +22,7 @@ export default async function SearchResults({ searchParams }: ISearchProps) {
       <div>
         <div className='relative bg-gradient-to-b pb-8'>
           <Header />
-          <main className='relative mb-48 mt-20 h-screen pl-4 lg:pl-16 '>
+          <main className='relative mb-48 mt-20 h-screen pl-4 lg:pl-16'>
             <h1 className='mb-4 text-2xl font-bold'>
               Search results for: <span className='text-red-500'>{title}</span>
             </h1>
@@ -37,7 +37,7 @@ export default async function SearchResults({ searchParams }: ISearchProps) {
     <div>
       <div className='relative bg-gradient-to-b pb-8'>
         <Header />
-        <main className='relative mb-48 mt-20 h-screen pl-4 lg:pl-16 '>
+        <main className='relative mb-48 mt-20 h-screen pl-4 lg:pl-16'>
           <h1 className='mb-4 text-2xl font-bold'>
             Search results for: <span className='text-red-500'>{title}</span>
           </h1>

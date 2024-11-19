@@ -4,13 +4,13 @@ import { getMovieById } from '@/app/service/MovieService';
 import React from 'react';
 
 interface IWatchProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{
+    id: any;
+  }>;
 }
 
 export default async function Watch({ params }: IWatchProps) {
-  const movie = await getMovieById(params.id);
+  const movie = await getMovieById((await params).id);
 
   if (!movie) {
     return (
