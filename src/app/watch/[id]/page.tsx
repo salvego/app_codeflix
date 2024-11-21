@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header';
 import { getMovieById } from '../../service/MovieService';
 import Player from '../../components/Player';
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { searchMovies } from '../service/MovieService';
-import Header from '../components/Header';
 import { MovieCard } from '../components/MovieCard';
 
 interface ISearchParams {
