@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Movie } from '@/app/types/movie';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { MediaPlayer, MediaProvider } from '@vidstack/react';
 import '@vidstack/react/player/styles/base.css';
+import { Movie } from '../types/movie';
 
 type Props = {
   movie: Movie;
@@ -15,14 +15,14 @@ export default async function Player({ movie }: Props) {
         controls={true}
         title={movie.title}
         src={movie.videoFileURL}
-        className='ring-media-focus  aspect-video w-full rounded-md bg-black '
+        className='ring-media-focus aspect-video w-full rounded-md bg-black'
       >
         <Link href='/'>
-          <ArrowLeftIcon className='media-playing:opacity-0 invisible absolute left-8 top-8 z-50 h-8 cursor-pointer text-white md:visible' />
+          <ArrowLeftIcon className='invisible absolute left-8 top-8 z-50 h-8 cursor-pointer text-white media-playing:opacity-0 md:visible' />
         </Link>
 
         {/* mobile title  */}
-        <div className='media-playing:opacity-0 visible absolute left-2 top-8 z-50 transition-opacity duration-500 md:invisible'>
+        <div className='visible absolute left-2 top-8 z-50 transition-opacity duration-500 media-playing:opacity-0 md:invisible'>
           <div className='flex flex-row items-center gap-4'>
             <Link href='/'>
               <ArrowLeftIcon className='h-6' />
@@ -34,7 +34,7 @@ export default async function Player({ movie }: Props) {
         </div>
 
         <MediaProvider className='relative mx-auto flex aspect-video max-w-fit justify-center rounded-md align-middle'>
-          <div className='media-playing:opacity-0 invisible absolute left-8 top-96 z-50 transition-opacity duration-500 md:visible'>
+          <div className='invisible absolute left-8 top-96 z-50 transition-opacity duration-500 media-playing:opacity-0 md:visible'>
             <h1 className='text-2xl font-bold md:text-4xl lg:text-7xl'>
               {movie.title}
             </h1>
